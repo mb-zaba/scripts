@@ -5,12 +5,6 @@ case $1 in
 		echo "=== STEP 1 STARTING ==="
 		echo "Loading keyboard layout: pl"
 		loadkeys pl
-		echo "Setting up network"
-		pacman -S dhcpcd && systemctl start dhcpcd
-		read -p "Enter SSID: " SSID
-		read -p "Enter passkey: " NETKEY
-		iwctl --passphrase $NETKEY station wlan0 connect $SSID
-		ip -c a
 		timedatectl
 		echo "=== STEP 1 OVER ==="
 		echo "You can now partition the disks."
